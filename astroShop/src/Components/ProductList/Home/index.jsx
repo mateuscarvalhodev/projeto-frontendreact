@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-empty */
 /* eslint-disable no-const-assign */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
@@ -10,18 +12,11 @@ const Home = ({
   minFilter,
   maxFilter,
   searchFilter,
-  cart,
-  setCart,
-  amount,
-  setAmount,
+  onClickProduct,
 }) => {
 
   const [sortedProductList, setSortedProductList] = useState([...productList]);
   const [sortValue, setSortValue] = useState("");
-  
-  const addItemOnCart = (product) => {
-    console.log(product)
-  }
 
   const handleSort = (e) => {
     setSortValue(e.target.value);
@@ -69,7 +64,7 @@ const Home = ({
             <ProductCard 
             key={index}
             product={product}
-            addItemOnCart={addItemOnCart}
+            onClickProduct={onClickProduct}
             />
           ))}
         </ProductGrid>

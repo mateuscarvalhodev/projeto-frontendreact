@@ -1,3 +1,5 @@
+/* eslint-disable no-empty */
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import GlobalStyles from './GlobalStyles';
 import Filters from './Components/Filters';
@@ -12,8 +14,8 @@ const App = () => {
   const [minFilter, setMinFilter] = useState('');
   const [maxFilter, setMaxFilter] = useState('');
   const [searchFilter, setSearchFilter] = useState('');
-  const [cart, setCart] = useState('');
-  const [amount, setAmount] = useState('');
+  const [cart, setCart] = useState([]);
+  
 
   const handleFilterChange = (filterName, value) => {
     if (filterName === 'minFilter') {
@@ -22,6 +24,21 @@ const App = () => {
       setMaxFilter(value);
     }else if (filterName === 'searchFilter') {
       setSearchFilter(value);
+    }
+  }
+
+  const addItemOnCart = (productAdd) => {
+    const addedProduct = cart.find((product) => product.id === productAdd.id)
+    if(addedProduct === undefined) {
+     productAdd = {...productAdd, quantity: 1}
+      setCart([...cart, productAdd])
+    } else {
+      const newCart = cart.map((product) => {
+       return product.id === productAdd.id 
+        ? {...product, quantity: product.quantity +1} 
+        : product
+      })
+      setCart(newCart);
     }
   }
 
@@ -43,15 +60,15 @@ const App = () => {
             minFilter={minFilter}
             maxFilter={maxFilter}
             searchFilter={searchFilter}
-            cart={cart}
-            setCart={setCart}
-            amount={amount}
-            setAmount={setAmount}
+            onClickProduct={addItemOnCart}
           />
           
         </MiddlePanel>
         <RightPanel>
-          <ShoppingCart />
+          <ShoppingCart 
+          cart={cart}
+          setCart={setCart}
+          />
         </RightPanel>
       </Container>
     </>
