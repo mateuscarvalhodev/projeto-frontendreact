@@ -5,24 +5,38 @@ import { useEffect, useState } from "react";
 import ProductCard from "../ProductCard";
 import { Container, Header, ProductGrid } from "./styles";
 
-const Home = ({ productList, minFilter, maxFilter, searchFilter }) => {
+const Home = ({
+  productList,
+  minFilter,
+  maxFilter,
+  searchFilter,
+  cart,
+  setCart,
+  amount,
+  setAmount,
+}) => {
+
   const [sortedProductList, setSortedProductList] = useState([...productList]);
-  const [sortValue, setSortValue] = useState('');
+  const [sortValue, setSortValue] = useState("");
+  
+  const addItemOnCart = (product) => {
+    console.log(product)
+  }
 
   const handleSort = (e) => {
-    setSortValue(e.target.value)
+    setSortValue(e.target.value);
   };
 
   useEffect(() => {
     let filteredProducts = productList.filter(
-      product => 
-      (minFilter ? product.value >= minFilter : true) &&
-      (maxFilter ? product.value <= maxFilter : true)
+      (product) =>
+        (minFilter ? product.value >= minFilter : true) &&
+        (maxFilter ? product.value <= maxFilter : true)
     );
 
-    if(searchFilter) {
-      filteredProducts = filteredProducts.filter(product =>
-        product.name.toLowerCase().includes(searchFilter.toLowerCase())  
+    if (searchFilter) {
+      filteredProducts = filteredProducts.filter((product) =>
+        product.name.toLowerCase().includes(searchFilter.toLowerCase())
       );
     }
 
@@ -52,7 +66,11 @@ const Home = ({ productList, minFilter, maxFilter, searchFilter }) => {
         </Header>
         <ProductGrid>
           {sortedProductList.map((product, index) => (
-            <ProductCard key={index} product={product} />
+            <ProductCard 
+            key={index}
+            product={product}
+            addItemOnCart={addItemOnCart}
+            />
           ))}
         </ProductGrid>
       </Container>

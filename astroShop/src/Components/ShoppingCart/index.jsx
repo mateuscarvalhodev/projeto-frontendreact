@@ -1,7 +1,12 @@
+/* eslint-disable no-unused-vars */
 import { CheckoutButton, Container, ItemContainer, RemoveButton } from './styles';
 import camisaNasa from '../../assets/img/blusa1.png'
+import { useState } from 'react';
 
 const ShoppingCart = () => {
+
+  
+
   return (
     <>
     <Container>

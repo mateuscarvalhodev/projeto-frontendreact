@@ -13,7 +13,7 @@ const App = () => {
   const [maxFilter, setMaxFilter] = useState('');
   const [searchFilter, setSearchFilter] = useState('');
   const [cart, setCart] = useState('');
-  const [amount, setAmout] = useState('');
+  const [amount, setAmount] = useState('');
 
   const handleFilterChange = (filterName, value) => {
     if (filterName === 'minFilter') {
@@ -43,6 +43,10 @@ const App = () => {
             minFilter={minFilter}
             maxFilter={maxFilter}
             searchFilter={searchFilter}
+            cart={cart}
+            setCart={setCart}
+            amount={amount}
+            setAmount={setAmount}
           />
           
         </MiddlePanel>
