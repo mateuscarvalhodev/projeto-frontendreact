@@ -27,6 +27,10 @@ export const CartItemsContainer = styled.div`
   overflow-y: auto;
   max-height: 60vh;
   width: 100%;
+  &::-webkit-scrollbar { 
+  display: none;
+}
+
 `;
 export const ItemContainer = styled.div`
   display: flex;
