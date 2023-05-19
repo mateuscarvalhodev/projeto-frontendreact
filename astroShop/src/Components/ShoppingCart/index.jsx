@@ -58,7 +58,7 @@ const ShoppingCart = ({ cart, setCart }) => {
             </ItemContainer>
           ))}
         </CartItemsContainer>
-        <p>Valor Total: R${amount}</p>
+        <p>Valor Total: R${amount}.00</p>
         <CheckoutButton onClick={notify}>Finalizar Compra</CheckoutButton>
       </Container>
       <ToastContainer
