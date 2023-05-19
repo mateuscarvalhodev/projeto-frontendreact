@@ -2,11 +2,13 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import {
+  CartItemsContainer,
   CheckoutButton,
   Container,
   ItemContainer,
   RemoveButton,
 } from "./styles";
+
 
 const ShoppingCart = ({ cart, setCart }) => {
   const [amount, setAmount] = useState(0);
@@ -34,11 +36,14 @@ const ShoppingCart = ({ cart, setCart }) => {
       }
     })
   }
-
+  const onFinish = () => {
+    alert('Nos vemos no backEnd');
+  }
   return (
     <>
       <Container>
-        <h1>Astro Cart</h1>
+        <h1>Carrinho Astro</h1>
+        <CartItemsContainer>
         {cart.map((item, index) => (
           <ItemContainer key={index}>
             <div>
@@ -50,8 +55,9 @@ const ShoppingCart = ({ cart, setCart }) => {
             <RemoveButton onClick={() =>removeItemFromCart(item.id)}>Remover</RemoveButton>
           </ItemContainer>
         ))}
+        </CartItemsContainer>
         <b>Valor Total: R${amount}</b>
-        <CheckoutButton>Finalizar Compra</CheckoutButton>
+        <CheckoutButton onClick={onFinish}>Finalizar Compra</CheckoutButton>
       </Container>
     </>
   );

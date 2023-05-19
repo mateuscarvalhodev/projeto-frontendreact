@@ -23,6 +23,11 @@ export const Container = styled.div`
   }
 `;
 
+export const CartItemsContainer = styled.div`
+  overflow-y: auto;
+  max-height: 60vh;
+  width: 100%;
+`;
 export const ItemContainer = styled.div`
   display: flex;
   justify-content: space-between;
