@@ -5,7 +5,7 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 8px;
   padding: 20px;
   margin: 10px;
@@ -25,7 +25,9 @@ export const Card = styled.div`
 `;
   export const CardImage = styled.img`
   max-width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: cover;
+  
 `;
 
 export const CardTitle = styled.h2`

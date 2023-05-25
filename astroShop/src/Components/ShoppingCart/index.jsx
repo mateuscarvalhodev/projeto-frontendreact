@@ -10,6 +10,7 @@ import {
   ItemContainer,
   RemoveButton,
 } from "./styles";
+import { MdShoppingCart } from "react-icons/md";
 
 const ShoppingCart = ({ cart, setCart }) => {
   const [amount, setAmount] = useState(0);
@@ -58,7 +59,7 @@ const ShoppingCart = ({ cart, setCart }) => {
             </ItemContainer>
           ))}
         </CartItemsContainer>
-        <p>Valor Total: R${amount}.00</p>
+        <p><MdShoppingCart />Valor Total: R${amount.toFixed(2)}</p>
         <CheckoutButton onClick={notify}>Finalizar Compra</CheckoutButton>
       </Container>
       <ToastContainer

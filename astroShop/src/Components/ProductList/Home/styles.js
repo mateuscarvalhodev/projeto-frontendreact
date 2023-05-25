@@ -7,6 +7,7 @@ flex-wrap: wrap;
 flex-direction: column;
 align-items: center;
 gap: 20px;
+
 `;
 
 export const Header = styled.div`
@@ -41,5 +42,5 @@ export const ProductGrid = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
 `;
